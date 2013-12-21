@@ -1,17 +1,23 @@
-
- Installation
+Installation
 =====================================
 
 Copy FAR_Revive folder into your mission folder. Add this to the top of your init.sqf:
 
 call compileFinal preprocessFileLineNumbers "FAR_revive\FAR_revive_init.sqf";
 
- Spectate with respawn disabled
-=====================================
-
 If you want to disable respawn and allow players to spectate, add "respawn=4;" to your description.ext.
 
- Changelog
+Features
+=====================================
+
+* Revive Modes. 0 = Only medics can revive, 1 = All units can revive, 2 = Same as 1 but a medikit will be required. 0 is default.
+* Death messages. Teamkills are shown as "x was injured by y"
+* Ability to drag injured units
+* Suicide option which you can use to respawn (if it's enabled) or just to kill yourself
+* Bleedout. If a timeout is specified and you are not revived within the given time you will bleed out and die.
+* Mute ACRE for unconscious units
+
+Changelog
 =====================================
 
 v1.5
