@@ -1,6 +1,4 @@
-- Farooq's Revive 1.5
 
-=====================================
  Installation
 =====================================
 
@@ -8,13 +6,11 @@ Copy FAR_Revive folder into your mission folder. Add this to the top of your ini
 
 call compileFinal preprocessFileLineNumbers "FAR_revive\FAR_revive_init.sqf";
 
-=====================================
  Spectate with respawn disabled
 =====================================
 
 If you want to disable respawn and allow players to spectate, add "respawn=4;" to your description.ext.
 
-=====================================
  Changelog
 =====================================
 
