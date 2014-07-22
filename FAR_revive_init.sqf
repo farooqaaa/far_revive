@@ -132,6 +132,54 @@ FAR_Mute_Radio =
 	[] spawn FAR_Mute_ACRE;
 };
 
+FAR_Mute_TFR =
+{
+	waitUntil { time > 0 };
+
+	waitUntil
+	{
+		if (alive player) then
+		{
+			// player getVariable ["ace_sys_wounds_uncon", true/false];
+			if ((player getVariable["ace_sys_wounds_uncon", false])) then
+			{
+				private["_saveVolume"];
+
+				_saveVolume = player getVariable ["tf_globalVolume", 1.0];
+
+				player setVariable ["tf_unable_to_use_radio", true, true];
+
+				waitUntil
+				{
+					player setVariable ["tf_globalVolume", 0];
+
+					if (!(player getVariable["tf_unable_to_use_radio", false])) then
+					{
+						player setVariable ["tf_unable_to_use_radio", true, true];
+					};
+
+					!(player getVariable["ace_sys_wounds_uncon", false]);
+				};
+
+				if ((player getVariable["tf_unable_to_use_radio", false])) then
+				{
+					player setVariable ["tf_unable_to_use_radio", false, true];
+				};
+
+				player setVariable ["tf_globalVolume", _saveVolume];
+			};
+		}
+		else
+		{
+			waitUntil { alive player };
+		};
+
+		sleep 0.25;
+
+		false
+	};
+};
+
 FAR_Mute_ACRE =
 {
 	waitUntil { time > 0 };
