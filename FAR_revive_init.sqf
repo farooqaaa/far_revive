@@ -12,8 +12,8 @@ FAR_BleedOut = 600;
 // Enable teamkill notifications
 FAR_EnableDeathMessages = true;
 
-// If enabled, unconscious units will not be able to use ACRE radio, hear other people or use proximity chat
-FAR_MuteACRE = false;
+// If enabled, unconscious units will not be able to use radios, hear other people or use proximity chat
+FAR_MuteRadio = false;
 
 /*
 	0 = Only medics can revive
@@ -48,9 +48,9 @@ if (isDedicated) exitWith {};
 	
 	[] spawn FAR_Player_Init;
 
-	if (FAR_MuteACRE) then
+	if (FAR_MuteRadio) then
 	{
-		[] spawn FAR_Mute_ACRE;
+		[] spawn FAR_Mute_Radio;
 
 		hintSilent format["Farooq's Revive %1 is initialized.%2", SCRIPT_VERSION, "\n\n Note: Unconscious units will not be able to use radio, hear other people or use proximity chat"];
 	}
