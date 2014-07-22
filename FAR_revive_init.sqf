@@ -129,7 +129,11 @@ FAR_Player_Init =
 
 FAR_Mute_Radio =
 {
-	[] spawn FAR_Mute_ACRE;
+	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
+		[] spawn FAR_Mute_TFR;
+	} else {
+		[] spawn FAR_Mute_ACRE;
+	};
 };
 
 FAR_Mute_TFR =
