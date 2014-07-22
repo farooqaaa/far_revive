@@ -127,6 +127,11 @@ FAR_Player_Init =
 	}
 };
 
+FAR_Mute_Radio =
+{
+	[] spawn FAR_Mute_ACRE;
+};
+
 FAR_Mute_ACRE =
 {
 	waitUntil { time > 0 };
