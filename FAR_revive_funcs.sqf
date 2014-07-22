@@ -82,7 +82,7 @@ FAR_Player_Unconscious =
 		titleText ["", "BLACK IN", 1];
 		disableUserInput false;
 
-		// Mute ACRE
+		// Mute Radio
 		_unit setVariable ["ace_sys_wounds_uncon", true];
 	};
 	
@@ -128,7 +128,7 @@ FAR_Player_Unconscious =
 			// Clear the "medic nearby" hint
 			hintSilent "";
 
-			// Unmute ACRE
+			// Unmute Radio
 			if (isPlayer _unit) then
 			{
 				_unit setVariable ["ace_sys_wounds_uncon", false];
