@@ -61,7 +61,7 @@ FAR_Player_Unconscious =
 	};
 	
 	// Eject unit if inside vehicle
-	while {vehicle _unit != _unit} do 
+	if (vehicle _unit != _unit) then
 	{
 		unAssignVehicle _unit;
 		_unit action ["eject", vehicle _unit];
@@ -70,10 +70,10 @@ FAR_Player_Unconscious =
 	};
 	
 	_unit setDamage 0;
-    _unit setVelocity [0,0,0];
-    _unit allowDamage false;
+    	_unit setVelocity [0,0,0];
+    	_unit allowDamage false;
 	_unit setCaptive true;
-    _unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
+    	_unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
 	
 	sleep 4;
     
