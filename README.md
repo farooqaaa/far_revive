@@ -10,7 +10,10 @@ If you want to disable respawn and allow players to spectate, add "respawn=4;" t
 Features
 =====================================
 
-* Revive Modes. 0 = Only medics can revive, 1 = All units can revive, 2 = Same as 1 but a medikit will be required. 0 is default.
+* Revive Modes. 
+  * 0 = Only medics can revive.
+  * 1 = All units can revive.
+  * 2 = Same as 1 but a medikit will be required. 0 is default.
 * Death messages. Teamkills are shown as "x was injured by y"
 * Ability to drag injured units
 * Suicide option which you can use to respawn (if it's enabled) or just to kill yourself
