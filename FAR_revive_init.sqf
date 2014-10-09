@@ -12,8 +12,8 @@ FAR_BleedOut = 600;
 // Enable teamkill notifications
 FAR_EnableDeathMessages = true;
 
-// If enabled, unconscious units will not be able to use ACRE radio, hear other people or use proximity chat
-FAR_MuteACRE = false;
+// If enabled, unconscious units will not be able to use radios, hear other people or use proximity chat
+FAR_MuteRadio = false;
 
 /*
 	0 = Only medics can revive
@@ -48,9 +48,9 @@ if (isDedicated) exitWith {};
 	
 	[] spawn FAR_Player_Init;
 
-	if (FAR_MuteACRE) then
+	if (FAR_MuteRadio) then
 	{
-		[] spawn FAR_Mute_ACRE;
+		[] spawn FAR_Mute_Radio;
 
 		hintSilent format["Farooq's Revive %1 is initialized.%2", SCRIPT_VERSION, "\n\n Note: Unconscious units will not be able to use radio, hear other people or use proximity chat"];
 	}
@@ -125,6 +125,63 @@ FAR_Player_Init =
 			
 		sleep 3;
 	}
+};
+
+FAR_Mute_Radio =
+{
+	if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
+		[] spawn FAR_Mute_TFR;
+	} else {
+		[] spawn FAR_Mute_ACRE;
+	};
+};
+
+FAR_Mute_TFR =
+{
+	waitUntil { time > 0 };
+
+	waitUntil
+	{
+		if (alive player) then
+		{
+			// player getVariable ["ace_sys_wounds_uncon", true/false];
+			if ((player getVariable["ace_sys_wounds_uncon", false])) then
+			{
+				private["_saveVolume"];
+
+				_saveVolume = player getVariable ["tf_globalVolume", 1.0];
+
+				player setVariable ["tf_unable_to_use_radio", true, true];
+
+				waitUntil
+				{
+					player setVariable ["tf_globalVolume", 0];
+
+					if (!(player getVariable["tf_unable_to_use_radio", false])) then
+					{
+						player setVariable ["tf_unable_to_use_radio", true, true];
+					};
+
+					!(player getVariable["ace_sys_wounds_uncon", false]);
+				};
+
+				if ((player getVariable["tf_unable_to_use_radio", false])) then
+				{
+					player setVariable ["tf_unable_to_use_radio", false, true];
+				};
+
+				player setVariable ["tf_globalVolume", _saveVolume];
+			};
+		}
+		else
+		{
+			waitUntil { alive player };
+		};
+
+		sleep 0.25;
+
+		false
+	};
 };
 
 FAR_Mute_ACRE =

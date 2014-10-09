@@ -61,7 +61,7 @@ FAR_Player_Unconscious =
 	};
 	
 	// Eject unit if inside vehicle
-	while {vehicle _unit != _unit} do 
+	if (vehicle _unit != _unit) then
 	{
 		unAssignVehicle _unit;
 		_unit action ["eject", vehicle _unit];
@@ -70,10 +70,10 @@ FAR_Player_Unconscious =
 	};
 	
 	_unit setDamage 0;
-    _unit setVelocity [0,0,0];
-    _unit allowDamage false;
+    	_unit setVelocity [0,0,0];
+    	_unit allowDamage false;
 	_unit setCaptive true;
-    _unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
+    	_unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
 	
 	sleep 4;
     
@@ -82,7 +82,7 @@ FAR_Player_Unconscious =
 		titleText ["", "BLACK IN", 1];
 		disableUserInput false;
 
-		// Mute ACRE
+		// Mute Radio
 		_unit setVariable ["ace_sys_wounds_uncon", true];
 	};
 	
@@ -128,7 +128,7 @@ FAR_Player_Unconscious =
 			// Clear the "medic nearby" hint
 			hintSilent "";
 
-			// Unmute ACRE
+			// Unmute Radio
 			if (isPlayer _unit) then
 			{
 				_unit setVariable ["ace_sys_wounds_uncon", false];
