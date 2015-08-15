@@ -25,7 +25,8 @@ FAR_HandleDamage_EH =
 	_killer = _this select 3;
 	_isUnconscious = _unit getVariable "FAR_isUnconscious";
 	
-	if (alive _unit && _amountOfDamage >= 1 && _isUnconscious == 0) then 
+	// 26K - Added body part check - Script was checking hits on arms and legs causing early KIAs.
+    if (alive _unit && _amountOfDamage >= 0.9 && _isUnconscious == 0 && _bodyPart in ["","head_hit","body"]) then
 	{
 		_unit setDamage 0;
 		_unit allowDamage false;
