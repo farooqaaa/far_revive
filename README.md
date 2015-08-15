@@ -23,6 +23,10 @@ Features
 Changelog
 =====================================
 
+v1.5a
+* [Fixed] Bug with helicopters
+* [Fixed] Player going unconscious with a single hit
+
 v1.5
 * [NEW] Unconscious units will not be able to use ACRE radio, hear other people or use proximity chat
 

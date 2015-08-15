@@ -1,5 +1,5 @@
 //
-// Farooq's Revive 1.5
+// Farooq's Revive 1.5a
 //
 
 //------------------------------------------//
@@ -26,7 +26,7 @@ FAR_ReviveMode = 0;
 
 call compile preprocessFile "FAR_revive\FAR_revive_funcs.sqf";
 
-#define SCRIPT_VERSION "1.5"
+#define SCRIPT_VERSION "1.5a"
 
 FAR_isDragging = false;
 FAR_isDragging_EH = [];
