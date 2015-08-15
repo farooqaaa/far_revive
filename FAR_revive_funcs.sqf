@@ -65,7 +65,7 @@ FAR_Player_Unconscious =
 	if (vehicle _unit != _unit) then
 	{
 		unAssignVehicle _unit;
-		_unit action ["eject", vehicle _unit];
+		_unit action ["getOut", vehicle _unit];
 		
 		sleep 2;
 	};
